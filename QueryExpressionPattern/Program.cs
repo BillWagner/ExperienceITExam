@@ -40,17 +40,38 @@ namespace QueryExpressionPattern
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var smallNumbers = numbers.Where((n) => n < 5);
 
-            var allNumbers = numbers.Select(n => n);
+            //int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            //var smallNumbers = from n in numbers
+            //                where n < 5
+            //                select n * n;
+            
 
-            var squares = numbers.Select(n => new { Number = n, Square = n * n });
+            var allNumbers = numbers.Select(n => n);
+           // var allNumbers = from n in numbers select n;
+
 
             var people = employees.Where(e => e.Age > 30).
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).
                 ThenBy(e => e.Age);
 
+            var people = from e in employees
+                         where e.Age > 30
+                         orderby e.LastName, e.FirstName, e.Age
+                         select e;
+           // var people = from e in employees
+           //            where e.Age > 30
+           //            orderby e.LastName descending
+           //            thenby e.FirstName
+           //            thenby e.Age
+           //            select e;
+
             var results = employees.GroupBy(e => e.Department).
                 Select(d => new { Department = d.Key, Size = d.Count() });
+
+          //  var results = from e in employees
+           //               group e by e.Department into d
+           //               select new { Department = d.Key, Size = d.Count() };
 
             var results2 = employees.GroupBy(e => e.Department).
                 Select(d => new
@@ -59,11 +80,21 @@ namespace QueryExpressionPattern
                     Employees = d.AsEnumerable()
                 });
 
+           // var results2 = from e in employees
+           //               group e by e.Department into d
+            //              select new { Department = d.Key, Employees = d.AsEnumerable() }; 
+
             int[] odds = {1,3,5,7};
             int[] evens = {2,4,6,8};
             var values = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
                 new { oddNumber, evenNumber, Sum = oddNumber + evenNumber });
+
+   //         int[] odds = { 1, 3, 5, 7 };
+   //         int[] evens = { 2, 4, 6, 8 };
+    //        var pairs = from oddNumber in odds
+    //                    from evenNumber in evens
+   //                     select new { oddNumber, evenNumber, Sum = oddNumber + evenNumber };
 
             var values2 = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
@@ -76,6 +107,18 @@ namespace QueryExpressionPattern
                     Sum = pair.oddNumber + pair.evenNumber
                 });
 
+   //         int[] odds = { 1, 3, 5, 7 };
+   //         int[] evens = { 2, 4, 6, 8 };
+   //         var values = from oddNumber in odds
+   //                      from evenNumber in evens
+   //                      where oddNumber > evenNumber
+   //                      select new
+   //                      {
+   //                          oddNumber,
+   //                          evenNumber,
+  //                           Sum = oddNumber + evenNumber
+ //                        };
+
             var nums = new int[] { 1, 2, 3 };
             var words = new string[] { "one", "two", "three" };
             var romanNumerals = new string[] { "I", "II", "III" };
@@ -84,14 +127,26 @@ namespace QueryExpressionPattern
                 SelectMany(pair => romanNumerals,
                 (pair, n) => new { Arabic = pair.n, Word = pair.s, Roman = n });
 
+     //       var triples = from n in new int[] { 1, 2, 3 }
+     //                     from s in new string[] { "one", "two", "three" }
+     //                     from r in new string[] { "I", "II", "III" }
+     //                     select new { Arabic = n, Word = s, Roman = r };
+
             var digits = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var labels = new string[] { "0", "1", "2", "3", "4", "5" };
             var query = digits.Join(labels, num => num.ToString(), label => label,
                 (num, label) => new { num, label });
 
+     //       var query = numbers.Join(labels, num => num.ToString(), label => label,
+     //           (num, label) => new { num, label });
+
             var groups = departments.GroupJoin(employees,
                 p => p, e => e.Department, (p, emps) =>
                     new { Department = p, Employees = emps});
+
+       //     var groups = from p in Department
+      //                   join e in Employees on p equals e.Department into emps
+      //                   select new { Department = p, emps };
 
 
         }
