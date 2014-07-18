@@ -11,9 +11,9 @@ namespace ExtensionMethods
         {
             Person person1 = new Person("Barak", "Obama");
             Person person2 = new Person("Barak", "Obama");
-            if (person1.GreaterThan(person2))
+            if (person1.LessThanOrEqual(person2))
             {
-                Console.WriteLine("Boo ya");
+                Console.WriteLine("person 1 LessThanOrEqual person 2");
             }
 
             //Hehe works fine.
@@ -28,9 +28,10 @@ namespace ExtensionMethods
             string bg = colors[0];
             string brush = colors[1];
 
-            //System.ConsoleColor.Blue;
+            //System.ConsoleColor.Blue; hate enums          
 
-          
+            //status1 = System.ConsoleColor.Black;
+
 
             // 1. Build out the extension methods for:
             //  GreaterThan
