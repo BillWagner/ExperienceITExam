@@ -9,6 +9,30 @@ namespace ExtensionMethods
     {
         static void Main(string[] args)
         {
+            Person person1 = new Person("Barak", "Obama");
+            Person person2 = new Person("Barak", "Obama");
+            if (person1.LessThanOrEqual(person2))
+            {
+                Console.WriteLine("person 1 LessThanOrEqual person 2");
+            }
+
+            //Hehe works fine.
+            Status status1 = new Status();
+            Status status2 = new Status();
+            Console.WriteLine(status1.CompareTo(status2));
+            person1.status = Status.Critical;
+            person2.status = Status.Information;
+
+            string[] colors = person1.ConvertStatus();
+
+            string bg = colors[0];
+            string brush = colors[1];
+
+            //System.ConsoleColor.Blue; hate enums          
+
+            //status1 = System.ConsoleColor.Black;
+
+
             // 1. Build out the extension methods for:
             //  GreaterThan
             //  LessThan
@@ -29,6 +53,7 @@ namespace ExtensionMethods
 
     public enum Status
     {
+
         Critical,
         Error,
         Warning,
@@ -38,6 +63,7 @@ namespace ExtensionMethods
 
     public class Person : IComparable<Person>
     {
+        public Status status = new Status();
         public string FirstName
         {
             get;
@@ -55,6 +81,65 @@ namespace ExtensionMethods
             FirstName = first;
             LastName = last;
         }
+        public bool GreaterThan(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) > 0)
+                return true;
+            else return false;
+
+        }
+
+        public bool LessThan(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) < 0)
+                return true;
+            else return false;
+        }
+
+        public bool GreaterThanOrEqual(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) >= 0)
+                return true;
+            else return false;
+
+        }
+
+        public bool LessThanOrEqual(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) <= 0)
+                return true;
+            else return false;
+
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+
+        //it's not right
+        public string[] ConvertStatus()
+        {
+            string[] result = new string[2];
+            //0 - for background, 1 for brush
+            if (this.status == Status.Critical)
+            {
+                result[0] = "white";
+                result[1] = "green";
+            }
+            else if (this.status == Status.Information)
+            {
+                result[0] = "yellow";
+                result[1] = "blue";
+            }
+            else {
+                result[0] = "black";
+                result[1] = "white";
+            }
+            return result;
+
+        }
 
         #region IComparable<Person> Members
 
@@ -64,6 +149,8 @@ namespace ExtensionMethods
             return (lastCompare != 0) ? lastCompare :
                 FirstName.CompareTo(other.FirstName);
         }
+
+
 
         #endregion
     }

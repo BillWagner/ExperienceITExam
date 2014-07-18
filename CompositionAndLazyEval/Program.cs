@@ -19,11 +19,26 @@ namespace CompositionAndLazyEval
             var sequence = Enumerable.Range(0, 100)
                 .Select((_) => generator.Next(int.MaxValue));
             // hint:
-
+           
+            
             int number = 1234567890;
             var factors = Primes.PrimeFactors(number);
             foreach (var factor in factors.Log("writing factors"))
-                Console.WriteLine(factor.Log("writing factor")); 
+                Console.WriteLine(factor.Log("writing factor"));
+           //I guess I had to write fluent LinQ
+            
+            var result1 = from n in sequence
+                          select new { n = generator.Next()};
+            
+            //2.
+            var result2 = from n in sequence
+                         where (n%2 == 0)
+                         select n;
+            //3.
+            var result3 = from n in sequence
+                         select new {n = Primes.PrimeFactors(generator.Next())};
+            //4. Belmes
+
         }
     }
 

@@ -61,6 +61,21 @@ namespace Loops
 
         static void Main(string[] args)
         {
+            
+            /****    QUESTION #1     *******/
+            //if you asked for first and last name...
+            foreach (var name in allStudents)
+                Console.WriteLine(name.FirstName + " " + name.LastName);
+
+            //See question two in Student.cs
+            /****    QUESTION #2 and #3    *******/
+
+            foreach (var fullName in allStudents)
+                fullName.printFullName(); 
+                // or Console.WriteLine(fullName.FullName);
+                
+
+
             //1. Write code to print all the names of all the studnets in the collection above.
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.
