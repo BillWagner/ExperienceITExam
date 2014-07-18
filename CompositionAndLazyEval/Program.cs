@@ -15,6 +15,38 @@ namespace CompositionAndLazyEval
             // 3. finds all the prime factors of each number
             // 4. builds a structure for each number that contains 
             // the number, and a list of all the prime factors
+           
+            public static void Generate 100 Random Int<T>(this T obj, Action<T> action) where T : IDisposable
+{
+       using (obj)
+       {
+                action(obj);
+       }
+}  
+
+        public static PrimeFactors Use<T>(this T obj, Action<T> action) where T : IDisposable
+{
+       using (obj)
+       {
+                action(obj);
+       }
+}  
+            
+
+        public static void OnlyEven<T>(this T obj, Action<T> action) where T : IDisposable
+{
+       using (obj)
+       {
+                action(obj);
+       }
+}  
+            public static StructureBuilder Use<T>(this T obj, Action<T> action) where T : IDisposable
+{
+       using (obj)
+       {
+                action(obj);
+       }
+}  
             var generator = new Random();
             var sequence = Enumerable.Range(0, 100)
                 .Select((_) => generator.Next(int.MaxValue));

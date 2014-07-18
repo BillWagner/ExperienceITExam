@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30516.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loops", "Loops\Loops.csproj", "{730B671F-4CFC-4B10-894A-CE33AEDA2144}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositionAndLazyEval", "CompositionAndLazyEval\CompositionAndLazyEval.csproj", "{38BE2FCB-AD65-4E45-A03E-FA33E80A44D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryExpressionPattern", "QueryExpressionPattern\QueryExpressionPattern.csproj", "{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roll", "Roll\Roll.csproj", "{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,16 @@ Global
 		{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}.Release|Mixed Platforms.Build.0 = Release|x86
 		{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}.Release|x86.ActiveCfg = Release|x86
 		{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}.Release|x86.Build.0 = Release|x86
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{01691A27-0D87-4077-9FA9-3E4BA0EA9D5A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
