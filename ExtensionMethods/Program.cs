@@ -17,13 +17,12 @@ namespace ExtensionMethods
             // Test those methods on the Person class below.
 
             // 2. Take the enum for status, build an 
-            // extension method that converts the status to a colored foreground
+            //  extension method that converts the status to a colored foreground
             // and background brush that you would use for a log message with that 
             // status.  Use System.ConsoleColor for the color values.
 
             // 3. If you have time, write an extension method on status that will
             // write a log message in the proper color.
-
         }
     }
 
