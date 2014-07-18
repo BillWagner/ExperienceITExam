@@ -19,11 +19,30 @@ namespace CompositionAndLazyEval
             var sequence = Enumerable.Range(0, 100)
                 .Select((_) => generator.Next(int.MaxValue));
             // hint:
+            
+            //Added LINQ query to collect only the even numbers
+            var evens = from n in sequence
+                        where n % 2 == 0
+                        select n;
 
-            int number = 1234567890;
-            var factors = Primes.PrimeFactors(number);
-            foreach (var factor in factors.Log("writing factors"))
-                Console.WriteLine(factor.Log("writing factor")); 
+            foreach (var item in evens)
+            {
+                Console.WriteLine("Your number is " + item);
+                Console.WriteLine("Your list of prime factors is ");
+
+                foreach (var item2 in Primes.PrimeFactors(item))
+                {
+                    Console.Write(item2+ " ");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadLine();
+
+            //Not my code
+           // int number = 1234567890;
+            //var factors = Primes.PrimeFactors(number);
+            //foreach (var factor in factors.Log("writing factors"))
+              //  Console.WriteLine(factor.Log("writing factor")); 
         }
     }
 

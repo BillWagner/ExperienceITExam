@@ -10,5 +10,10 @@ namespace Loops
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public void PrintName() 
+        {
+            Console.WriteLine(this.FirstName + " " + this.LastName);
+        }
     }
 }

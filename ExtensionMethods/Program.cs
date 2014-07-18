@@ -27,6 +27,10 @@ namespace ExtensionMethods
         }
     }
 
+    //I'm not even sure what I'm being asked to do in question number 1. 
+    //I don't know how you compare one object to another to see which is greater. 
+
+
     public enum Status
     {
         Critical,

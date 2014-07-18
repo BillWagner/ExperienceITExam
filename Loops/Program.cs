@@ -62,8 +62,18 @@ namespace Loops
         static void Main(string[] args)
         {
             //1. Write code to print all the names of all the studnets in the collection above.
+            foreach (Student item in allStudents)
+            {
+               Console.WriteLine(item.FirstName + " " + item.LastName);
+            }
+            Console.ReadLine();
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.
+            foreach (Student item in allStudents)
+            {
+                item.PrintName();
+            }
+            Console.ReadLine();
         }
     }
 }

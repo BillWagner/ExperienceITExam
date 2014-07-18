@@ -40,17 +40,36 @@ namespace QueryExpressionPattern
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var smallNumbers = numbers.Where((n) => n < 5);
 
+            var smallNumbersQuery = from n in numbers
+                                    where n < 5
+                                    select n;
+
             var allNumbers = numbers.Select(n => n);
 
+            var allNumbersQuery = from n in numbers
+                                  select n;
+
             var squares = numbers.Select(n => new { Number = n, Square = n * n });
+
+            var squaresQuery = from n in numbers
+                               select n * n; 
 
             var people = employees.Where(e => e.Age > 30).
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).
                 ThenBy(e => e.Age);
 
+            var peopleQuery = from e in employees
+                              orderby e.LastName,e.FirstName,e.Age
+                              select e;
+
             var results = employees.GroupBy(e => e.Department).
                 Select(d => new { Department = d.Key, Size = d.Count() });
+
+            var resultsQuery = from e in employees
+                               group e by departments into f
+                               select new { Department = f.Key, Numbers = f.Count() };
+
 
             var results2 = employees.GroupBy(e => e.Department).
                 Select(d => new
@@ -58,6 +77,10 @@ namespace QueryExpressionPattern
                     Department = d.Key,
                     Employees = d.AsEnumerable()
                 });
+
+            var results2Query = from e in employees
+                                group e by departments into f
+                                select new { };
 
             int[] odds = {1,3,5,7};
             int[] evens = {2,4,6,8};
