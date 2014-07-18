@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Loops
 {
+    
     class Program
     {
+
         private static List<Student> allStudents = new List<Student>
         {
             new Student {FirstName = "Alexandre", LastName="Levy" },
@@ -60,13 +62,18 @@ namespace Loops
             
         };
 
+        
+
         static void Main(string[] args)
         {
+            
 
             //1. Write code to print all the names of all the studnets in the collection above.
-            foreach (var item in allStudents)
+            foreach (var Student in allStudents)
             {
-                Console.WriteLine(allStudents.ToString());
+                string a = Student.FirstName;
+                string b = Student.LastName;
+                Console.WriteLine(a+ " " +b);
 
             }
 
