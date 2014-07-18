@@ -40,6 +40,8 @@ namespace QueryExpressionPattern
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var smallNumbers = numbers.Where((n) => n < 5);
 
+
+
             var allNumbers = numbers.Select(n => n);
 
             var squares = numbers.Select(n => new { Number = n, Square = n * n });
