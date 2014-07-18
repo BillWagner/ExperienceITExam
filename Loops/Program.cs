@@ -56,14 +56,27 @@ namespace Loops
             new Student {FirstName = "Richard", LastName="Turner" },
             new Student {FirstName = "Nicole", LastName="Bogner" },
             new Student {FirstName = "Soroush (Looloosh)", LastName="Farazmand" },
-            new Student {FirstName = "Monkey", LastName="Black" }
+            new Student {FirstName = "Monkey", LastName="Black" },
+      
+            // 2. Modify the Student class to provide a method to print each students name.
+           
+        Students.OutputAll(),
+            Students.Add(OutputAll(FirstName, LastName)) 
         };
 
         static void Main(string[] args)
         {
-            //1. Write code to print all the names of all the studnets in the collection above.
-            // 2. Modify the Student class to provide a method to print each students name.
+            //1. Write code to print all the names of all the students in the collection above.
+            
+        Foreach (String Value in Students);
+            {
+                Console.WriteLine();
+            }
+
+
             // 3. Use the method from (2) to print the students' names.
+
+
         }
     }
 }
