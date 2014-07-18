@@ -8,6 +8,8 @@ namespace Loops
 {
     class Program
     {
+        
+        
         private static List<Student> allStudents = new List<Student>
         {
             new Student {FirstName = "Alexandre", LastName="Levy" },
@@ -61,9 +63,24 @@ namespace Loops
 
         static void Main(string[] args)
         {
+            Console.WriteLine("FristName");
+	for (string) 
+	{
+	    Console.WriteLine(i);
+	}
+             
             //1. Write code to print all the names of all the studnets in the collection above.
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.
+           
+          1// console.WriteLine("Alexandre Levy, Louis Chauvin, Robert Johnson, Nat Jeffe, Jesse Belvin, Ruby Lewis, Malcom Hale, Dickie Pride, Brian Jones, Alan (Blind Owl, Jones, Alan Wilson, Jimi Hendrix, Janis Joplan, Alester Christen, Jim Morrison, Linda Jones, Leslie Harvey, Ron (Pigpen) McKernan, Roger lee Durham, Wallace Yohn, Dave Alexander, Pete Ham, Gary Thain, Celila, Helmut Kollen, Chris Bell, Jacob Miller, D Boon, Alexander Bashlachev, Jean-Michel Basquiat, Pete de Freitas, Mia Zapata, Kurt Cobain, Kristen Pfaff, Richie Edwards, Fat Pat, Freaky Tah, Kami, Rodigo Bueno, Maria Serrano, Jeremy Michael Ward, Bray Ottoson, Valentin Elizalde, Amy Whinehouse, Richard Turner, Nicole Bogner, Soroush, Farazmand, Monkey Black");
+          2// 
+            {
+             
+            }
+
+        
         }
+
     }
 }
