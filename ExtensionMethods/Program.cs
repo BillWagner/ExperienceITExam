@@ -28,8 +28,9 @@ namespace ExtensionMethods
             string bg = colors[0];
             string brush = colors[1];
 
-            //System.ConsoleColor.Black();
+            //System.ConsoleColor.Blue;
 
+          
 
             // 1. Build out the extension methods for:
             //  GreaterThan
