@@ -59,8 +59,33 @@ namespace Loops
             new Student {FirstName = "Monkey", LastName="Black" }
         };
 
+        public class Lister
+        {
+            public void ListStudents()
+            {
+                foreach (Student s in allStudents)
+                {
+                    Console.WriteLine("Student name: {0} {1}", s.FirstName, s.LastName);
+                }
+            }
+        }
         static void Main(string[] args)
         {
+            //1
+            foreach (Student item in allStudents)
+            {
+                Console.WriteLine("{0} {1}", item.FirstName, item.LastName);
+            }
+            //2
+            Student studentobject = new Student();
+            studentobject.ListStudents2();
+            
+            //3
+            Lister list1 = new Lister();
+            list1.ListStudents();
+
+            Console.ReadLine();
+
             //1. Write code to print all the names of all the studnets in the collection above.
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.
