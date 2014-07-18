@@ -63,14 +63,14 @@ namespace Loops
         {
             int length;
             length = allStudents.Count();
-         /*   for(int i=0; i<length; i++)  //This code will loop the Student object using the new Display() method
+            for(int i=0; i<length; i++)  //This code will loop the Student object using the new Display() method
             {
                 allStudents[i].Display();
-            }*/
-        /*    for(int i=0; i<length; i++) //This code will loop through the Student object without using the Display() method
+            }
+          for(int i=0; i<length; i++) //This code will loop through the Student object without using the Display() method
             {
                 Console.WriteLine(allStudents[i].FirstName + " " + allStudents[i].LastName);
-            }*/
+            }
             //1. Write code to print all the names of all the studnets in the collection above.
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.

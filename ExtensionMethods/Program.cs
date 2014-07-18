@@ -55,6 +55,11 @@ namespace ExtensionMethods
             else
                 return false;
         }
+        public static void color(this Status message )
+        {
+            if(Status.Critical)
+
+        }
 
     }
     class Program
@@ -63,10 +68,17 @@ namespace ExtensionMethods
         {
             Person me = new Person("Lionell", "Brown");
             Person you = new Person("Mark", "Li");
+            Person jeff = new Person("jeff", "bo");
            
            bool question= me.GreaterThan(you);
-           Console.WriteLine("Are you even working?");
-           Console.ReadKey();
+           Console.WriteLine(question);
+          question= me.LessThan(you);
+          Console.WriteLine(question);
+          question = me.GreaterThanOrEqual(you);
+          Console.WriteLine(question);
+          question = jeff.LessThanOrEqual(you);
+          Console.WriteLine(question);
+            
             // 1. Build out the extension methods for:
             //  GreaterThan
             //  LessThan
