@@ -116,10 +116,12 @@ namespace ExtensionMethods
             return base.Equals(obj);
         }
 
+
+        //it's not right
         public string[] ConvertStatus()
         {
             string[] result = new string[2];
-            //0 - for background, 1 fro brush
+            //0 - for background, 1 for brush
             if (this.status == Status.Critical)
             {
                 result[0] = "white";
