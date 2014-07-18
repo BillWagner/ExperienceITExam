@@ -59,6 +59,7 @@ namespace ExtensionMethods
             {
  	             return base.Equals(obj);
             }
+
     
 
         #region IComparable<Person> Members
