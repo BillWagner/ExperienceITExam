@@ -9,6 +9,15 @@ namespace ExtensionMethods
     {
         static void Main(string[] args)
         {
+            Person person1 = new Person("Barak", "Obama");
+            Person person2 = new Person("Barak", "Obama");
+            if (person1.GreaterThan(person2)) {
+                Console.WriteLine("Boo ya");
+            }
+
+            //Hehe works fine.
+
+
             // 1. Build out the extension methods for:
             //  GreaterThan
             //  LessThan
@@ -55,13 +64,41 @@ namespace ExtensionMethods
             FirstName = first;
             LastName = last;
         }
+        public bool GreaterThan(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) > 0)
+                return true;
+            else return false;
+
+        }
+
+        public bool LessThan(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) < 0)
+                return true;
+            else return false;
+        }
+
+        public bool GreaterThanOrEqual(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) >= 0)
+                return true;
+            else return false;
+
+        }
+
+        public bool LessThanOrEqual(Person obj)
+        {
+            if (this.FirstName.CompareTo(obj.FirstName) <= 0)
+                return true;
+            else return false;
+
+        }
+
         public override bool Equals(object obj)
-            {
- 	             return base.Equals(obj);
-            }
-
-    
-
+        {
+            return base.Equals(obj);
+        }
         #region IComparable<Person> Members
 
         public int CompareTo(Person other)
