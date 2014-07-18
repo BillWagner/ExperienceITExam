@@ -5,10 +5,68 @@ using System.Text;
 
 namespace ExtensionMethods
 {
+    public static class myExtensionMethond
+    {
+        public static bool GreaterThan(this Person human, Person num2)
+        {
+            int length1, lenght2, length3, length4;
+            length1 = human.FirstName.Count();
+            lenght2 = human.LastName.Count();
+            length3 = num2.FirstName.Count();
+            length4 = num2.LastName.Count();
+            if ((length1 + lenght2) > (length3 + length4))
+                return true;
+            else
+                return false;
+        }
+        public static bool LessThan(this Person human, Person x)
+        {
+            int length1, lenght2, length3, length4;
+            length1 = human.FirstName.Count();
+            lenght2 = human.LastName.Count();
+            length3 = x.FirstName.Count();
+            length4 = x.LastName.Count();
+            if ((length1 + lenght2) < (length3 + length4))
+                return true;
+            else
+                return false;
+        }
+        public static bool GreaterThanOrEqual(this Person human, Person x)
+        {
+            int length1, lenght2, length3, length4;
+            length1 = human.FirstName.Count();
+            lenght2 = human.LastName.Count();
+            length3 = x.FirstName.Count();
+            length4 = x.LastName.Count();
+            if ((length1 + lenght2) >= (length3 + length4))
+                return true;
+            else
+                return false;
+        }
+        public static bool LessThanOrEqual(this Person human, Person x)
+        {
+            int length1, lenght2, length3, length4;
+            length1 = human.FirstName.Count();
+            lenght2 = human.LastName.Count();
+            length3 = x.FirstName.Count();
+            length4 = x.LastName.Count();
+            if ((length1 + lenght2) <= (length3 + length4))
+                return true;
+            else
+                return false;
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
         {
+            Person me = new Person("Lionell", "Brown");
+            Person you = new Person("Mark", "Li");
+           
+           bool question= me.GreaterThan(you);
+           Console.WriteLine("Are you even working?");
+           Console.ReadKey();
             // 1. Build out the extension methods for:
             //  GreaterThan
             //  LessThan

@@ -40,17 +40,26 @@ namespace QueryExpressionPattern
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var smallNumbers = numbers.Where((n) => n < 5);
 
+            var smallNumers = from n in numbers where n < 5 select n; //Query
+
             var allNumbers = numbers.Select(n => n);
+            var allNumber = from n in numbers select n; //Query
 
             var squares = numbers.Select(n => new { Number = n, Square = n * n });
+            var square = from n in numbers select (n * n); //Not sure
 
             var people = employees.Where(e => e.Age > 30).
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).
                 ThenBy(e => e.Age);
+            var peoples = from e in employees where e.Age > 30 orderby e.LastName, e.FirstName, e.Age select e; //Query 
 
             var results = employees.GroupBy(e => e.Department).
                 Select(d => new { Department = d.Key, Size = d.Count() });
+
+            var result = from e in employees
+                         group e by e.Department into newGroup
+                         select new { Department = newGroup.Key, Size = newGroup.Count() };//Query
 
             var results2 = employees.GroupBy(e => e.Department).
                 Select(d => new
@@ -58,12 +67,19 @@ namespace QueryExpressionPattern
                     Department = d.Key,
                     Employees = d.AsEnumerable()
                 });
+            var result2 = from e in employees
+                          group e by e.Department into newGroup
+                          select new { Departmant = newGroup.Key, Employees = newGroup.AsEnumerable() }; //Query
 
             int[] odds = {1,3,5,7};
             int[] evens = {2,4,6,8};
             var values = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
                 new { oddNumber, evenNumber, Sum = oddNumber + evenNumber });
+
+            var value = from oddNumber in odds
+                        from evenNumber in evens
+                        select new { oddNumber, evenNumber, Sum = oddNumber + evenNumber }; //Query
 
             var values2 = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
@@ -76,6 +92,10 @@ namespace QueryExpressionPattern
                     Sum = pair.oddNumber + pair.evenNumber
                 });
 
+            var vlaue2 = from oddNum in odds from evenNum in evens
+                         where oddNum>evenNum
+                         select new {oddNum, evenNum, Sum=oddNum+evenNum}; //Query
+
             var nums = new int[] { 1, 2, 3 };
             var words = new string[] { "one", "two", "three" };
             var romanNumerals = new string[] { "I", "II", "III" };
@@ -83,6 +103,7 @@ namespace QueryExpressionPattern
                 (n, s) => new { n, s }).
                 SelectMany(pair => romanNumerals,
                 (pair, n) => new { Arabic = pair.n, Word = pair.s, Roman = n });
+
 
             var digits = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var labels = new string[] { "0", "1", "2", "3", "4", "5" };
