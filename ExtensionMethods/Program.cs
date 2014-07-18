@@ -55,6 +55,11 @@ namespace ExtensionMethods
             FirstName = first;
             LastName = last;
         }
+        public override bool Equals(object obj)
+            {
+ 	             return base.Equals(obj);
+            }
+    
 
         #region IComparable<Person> Members
 
