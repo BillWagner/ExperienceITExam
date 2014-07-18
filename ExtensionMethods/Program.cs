@@ -15,6 +15,15 @@ namespace ExtensionMethods
             //  GreaterThanOrEqual
             //  LessThanOrEqual
             // Test those methods on the Person class below.
+            Person p1 = new Person("bob","Stevens");
+            Person p2 = new Person("Terry", "Stevens");
+            Person p3 = new Person("Mike", "Davis");
+
+            Console.WriteLine(Extensions.GreaterThan(p1,p2) + "");
+            Console.WriteLine(Extensions.GreaterThan(p3, p2) + "");
+            Console.ReadKey();
+
+
 
             // 2. Take the enum for status, build an 
             // extension method that converts the status to a colored foreground
@@ -25,6 +34,7 @@ namespace ExtensionMethods
             // write a log message in the proper color.
 
         }
+        
     }
 
     public enum Status
@@ -66,6 +76,25 @@ namespace ExtensionMethods
         }
 
         #endregion
+    }
+    static class Extensions
+    {
+        public static bool GreaterThan(this Person person1, Person person2)
+        {
+            if (String.CompareOrdinal(person1.LastName, person2.LastName) > 0)
+            {
+                return true;
+            }
+            else if (String.CompareOrdinal((person1.LastName).ToUpper(), person2.LastName.ToUpper()) == 0
+                && String.CompareOrdinal(person1.FirstName.ToUpper(), person2.FirstName.ToUpper()) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
 }
