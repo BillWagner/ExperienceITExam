@@ -38,19 +38,33 @@ namespace QueryExpressionPattern
         {
             // Convert each of the following Fluent Syntax methods into queries:
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            var smallNumbers = numbers.Where((n) => n < 5);
+            //var smallNumbers = numbers.Where((n) => n < 5);
 
-            var allNumbers = numbers.Select(n => n);
+            var smallNumbers = from n in numbers where n < 5 select n;
+            
 
-            var squares = numbers.Select(n => new { Number = n, Square = n * n });
+            //var allNumbers = numbers.Select(n => n);
+            var allNumbers = from n in numbers select n;
 
-            var people = employees.Where(e => e.Age > 30).
+
+            //var squares = numbers.Select(n => new { Number = n, Square = n * n });
+            var squares = from n in numbers let square = n*n select square;
+
+
+
+            /*var people = employees.Where(e => e.Age > 30).
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).
                 ThenBy(e => e.Age);
+            */
+            var people = from e in employees where e.Age > 30 orderby e.LastName orderby e.FirstName orderby e.Age select e;
 
+            
             var results = employees.GroupBy(e => e.Department).
                 Select(d => new { Department = d.Key, Size = d.Count() });
+
+            //var results = from d in employees select departments, size GroupBy departments;
+
 
             var results2 = employees.GroupBy(e => e.Department).
                 Select(d => new

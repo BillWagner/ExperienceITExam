@@ -10,5 +10,12 @@ namespace Loops
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-    }
+    
+     public static void printit(List<Student> stud)
+     {
+         foreach(var student in stud)
+         Console.WriteLine(student.FirstName + " " + student.LastName);
+     }
+   
+   }
 }
