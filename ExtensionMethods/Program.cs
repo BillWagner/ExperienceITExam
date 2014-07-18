@@ -5,8 +5,36 @@ using System.Text;
 
 namespace ExtensionMethods
 {
-    class Program
+    public static class Extensions
     {
+
+        static void GreaterThan(this Person greater)
+        {
+            //greater than
+        }
+
+        static void LessThan(this Person less)
+        {
+            //less than
+        }
+
+        static void GreaterThanEqualTo(this Person greaterOrEqual)
+        {
+            //greater than equal to 
+        }
+
+        static void LessThanEqualTo(this Person lessOrEqual)
+        {
+            //less than equal to 
+        }
+
+        static void EnumColor(this Enum e)
+        {
+            //enum color
+        }
+    }
+    
+    class Program{
         static void Main(string[] args)
         {
             // 1. Build out the extension methods for:
@@ -16,10 +44,11 @@ namespace ExtensionMethods
             //  LessThanOrEqual
             // Test those methods on the Person class below.
 
-            // 2. Take the enum for status, build an 
-            // extension method that converts the status to a colored foreground
+            //2. Take the enum for status, build an 
+            //extension method that converts the status to a colored foreground
             // and background brush that you would use for a log message with that 
             // status.  Use System.ConsoleColor for the color values.
+            
 
             // 3. If you have time, write an extension method on status that will
             // write a log message in the proper color.
@@ -65,7 +94,10 @@ namespace ExtensionMethods
                 FirstName.CompareTo(other.FirstName);
         }
 
-        #endregion
-    }
 
+
+    }
+        #endregion
+
+   
 }

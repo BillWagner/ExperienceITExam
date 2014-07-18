@@ -38,33 +38,60 @@ namespace QueryExpressionPattern
         {
             // Convert each of the following Fluent Syntax methods into queries:
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            var smallNumbers = numbers.Where((n) => n < 5);
+            
+            var smallNumbers = //numbers.Where((n) => n < 5);
+/*---------->*/from n in numbers
+               where n < 5
+               select n;
 
-            var allNumbers = numbers.Select(n => n);
+            var allNumbers = //numbers.Select(n => n);
+/*---------->*/from n in numbers
+               select n;
 
-            var squares = numbers.Select(n => new { Number = n, Square = n * n });
+            var squares = //numbers.Select(n => new { Number = n, Square = n * n });
+/*---------->*/from n in numbers
+              select new {Number = n, Square = n*n};
 
-            var people = employees.Where(e => e.Age > 30).
+            var people = 
+                /*employees.Where(e => e.Age > 30).
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).
-                ThenBy(e => e.Age);
+                ThenBy(e => e.Age);*/
+/*---------->*/from e in employees
+              where e.Age > 30 
+              orderby e.LastName, e.FirstName, e.Age
+              select e;
 
-            var results = employees.GroupBy(e => e.Department).
-                Select(d => new { Department = d.Key, Size = d.Count() });
+            var results =
+                /*employees.GroupBy(e => e.Department).
+                Select(d => new { Department = d.Key, Size = d.Count() });*/
+/*---------->*/from e in employees
+               group e by e.Department into d
+               select new { Department = d.Key, Size = d.Count() };
 
-            var results2 = employees.GroupBy(e => e.Department).
+ 
+            var results2 = 
+                /*employees.GroupBy(e => e.Department).
                 Select(d => new
                 {
                     Department = d.Key,
                     Employees = d.AsEnumerable()
-                });
+                });*/
+/*---------->*/from e in employees
+                group e by e.Department into d
+                select new {Department = d.Key,
+                employees = d.AsEnumerable()};
+
 
             int[] odds = {1,3,5,7};
             int[] evens = {2,4,6,8};
-            var values = odds.SelectMany(oddNumber => evens,
+//NOT DONE            
+            var values = 
+                odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
                 new { oddNumber, evenNumber, Sum = oddNumber + evenNumber });
-
+              
+//NOT DONE
             var values2 = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
                 new { oddNumber, evenNumber })
@@ -79,20 +106,29 @@ namespace QueryExpressionPattern
             var nums = new int[] { 1, 2, 3 };
             var words = new string[] { "one", "two", "three" };
             var romanNumerals = new string[] { "I", "II", "III" };
-            var triples = nums.SelectMany(n => words,
+            var triples =
+                /*nums.SelectMany(n => words,
                 (n, s) => new { n, s }).
                 SelectMany(pair => romanNumerals,
-                (pair, n) => new { Arabic = pair.n, Word = pair.s, Roman = n });
+                (pair, n) => new { Arabic = pair.n, Word = pair.s, Roman = n });*/
+/*---------->*/from n in new int[] { 1, 2, 3 }
+               from s in new string[] { "one", "two", "three" }
+               from r in new string[] { "I", "II", "III" }
+               select new { Arabic = n, Word = s, Roman = n };
 
             var digits = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var labels = new string[] { "0", "1", "2", "3", "4", "5" };
-            var query = digits.Join(labels, num => num.ToString(), label => label,
-                (num, label) => new { num, label });
-
-            var groups = departments.GroupJoin(employees,
+            var query = 
+                /*digits.Join(labels, num => num.ToString(), label => label,
+                (num, label) => new { num, label });*/
+                /*---------->*/from num in numbers
+                               join label in labels on num.ToString() equals label
+                               select new { num, label };
+//NOT DONE
+            var groups =
+                departments.GroupJoin(employees,
                 p => p, e => e.Department, (p, emps) =>
-                    new { Department = p, Employees = emps});
-
+                    new { Department = p, Employees = emps });
 
         }
     }

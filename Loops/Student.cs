@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace Loops
 {
-   public class Student
+   public virtual class Student
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-    }
+
+        public void Print(string s)
+        {
+            Console.WriteLine(s);
+        }
+   }
+
+    
 }
+

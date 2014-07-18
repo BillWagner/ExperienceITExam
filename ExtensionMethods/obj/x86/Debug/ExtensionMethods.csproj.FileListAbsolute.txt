@@ -1,0 +1,5 @@
+C:\Users\Tom\Documents\GitHub\ExperienceITExam\ExperienceITExam\ExtensionMethods\obj\x86\Debug\ExtensionMethods.csprojResolveAssemblyReference.cache
+C:\Users\Tom\Documents\GitHub\ExperienceITExam\ExperienceITExam\ExtensionMethods\bin\Debug\ExtensionMethods.exe
+C:\Users\Tom\Documents\GitHub\ExperienceITExam\ExperienceITExam\ExtensionMethods\bin\Debug\ExtensionMethods.pdb
+C:\Users\Tom\Documents\GitHub\ExperienceITExam\ExperienceITExam\ExtensionMethods\obj\x86\Debug\ExtensionMethods.exe
+C:\Users\Tom\Documents\GitHub\ExperienceITExam\ExperienceITExam\ExtensionMethods\obj\x86\Debug\ExtensionMethods.pdb
