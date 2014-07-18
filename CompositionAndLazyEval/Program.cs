@@ -9,6 +9,25 @@ namespace CompositionAndLazyEval
     {
         static void Main(string[] args)
         {
+
+            Random random = new Random();
+            int ans = random.Next(0, 100);
+            if (ans % 2 == 0) return ans;
+        }
+
+        static void main
+        {
+            Console.WriteLine("Primes between 0 and 100");
+            for (int i = 0; i < 100; i++)
+            {
+                bool prime = random.IsPrime(i);
+                if (prime)
+                {
+                    Console.Write("Prime: ");
+                    Console.WriteLine(i);
+                }
+            }
+        }
             // write a query that:
             // 1. Generates 100 random integers.
             // 2. Uses only the even numbers.
