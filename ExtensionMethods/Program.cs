@@ -55,6 +55,14 @@ namespace ExtensionMethods
             FirstName = first;
             LastName = last;
         }
+        public void GreaterThan()
+        {
+
+        }
+        //  GreaterThan
+        //  LessThan
+        //  GreaterThanOrEqual
+        //  LessThanOrEqual
 
         #region IComparable<Person> Members
 
