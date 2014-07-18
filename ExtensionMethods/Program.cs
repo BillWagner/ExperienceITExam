@@ -23,7 +23,7 @@ namespace ExtensionMethods
 
             // 3. If you have time, write an extension method on status that will
             // write a log message in the proper color.
-
+            Console.ReadLine();
         }
     }
 
