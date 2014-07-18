@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ba17cdebecb542b38b7e2e22f6822ff8" Name="Diagram1" >
+        <EntityTypeShape EntityType="Model1.Cookbook" Width="1.5" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Ingredients" Width="1.5" PointX="5.375" PointY="2.25" />
+        <EntityTypeShape EntityType="Model1.MealTypes" Width="1.5" PointX="3.5" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Recipes" Width="1.5" PointX="3.125" PointY="2.25" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
