@@ -93,7 +93,7 @@ namespace QueryExpressionPattern
                 p => p, e => e.Department, (p, emps) =>
                     new { Department = p, Employees = emps});
 
-
+            Console.ReadLine();
         }
     }
 }
