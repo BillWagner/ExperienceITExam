@@ -25,7 +25,19 @@ namespace CompositionAndLazyEval
             var factors = Primes.PrimeFactors(number);
             foreach (var factor in factors.Log("writing factors"))
                 Console.WriteLine(factor.Log("writing factor"));
- 
+           //I guess I had to write fluent LinQ
+            
+            var result1 = from n in sequence
+                          select new { n = generator.Next()};
+            
+            //2.
+            var result2 = from n in sequence
+                         where (n%2 == 0)
+                         select n;
+            //3.
+            var result3 = from n in sequence
+                         select new {n = Primes.PrimeFactors(generator.Next())};
+            //4. Belmes
 
         }
     }
