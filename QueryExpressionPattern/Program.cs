@@ -38,12 +38,42 @@ namespace QueryExpressionPattern
         {
             // Convert each of the following Fluent Syntax methods into queries:
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+
+            var numbersquery = from c in numbers
+                            where (int)numbers > 10
+                            select new
+                            {
+                                c.numbersquery
+                            };
+
+
+
             var smallNumbers = numbers.Where((n) => n < 5);
+
+            var smallNumbersQuery = from c in smallNumbers
+                            where (int)smallNumbers > 5
+                            select new
+                            {
+                                c.smallNumbersQuery
+                            };
 
             var allNumbers = numbers.Select(n => n);
 
-            var squares = numbers.Select(n => new { Number = n, Square = n * n });
+            var allNumbersQuery = from c in allNumbers
+                            
+                            select new *
+                            {
+                               c.allNumbers;
+                            };
 
+            var squares = numbers.Select(n => new { Number = n, Square = n * n });
+            var squaresquery = from c in squaresquery
+                            where numbers * n
+                            select new
+                            {
+                                c.squaresquery
+                            };
             var people = employees.Where(e => e.Age > 30).
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).

@@ -9,6 +9,8 @@ namespace ExtensionMethods
     {
         static void Main(string[] args)
         {
+
+
             // 1. Build out the extension methods for:
             //  GreaterThan
             //  LessThan
@@ -25,8 +27,28 @@ namespace ExtensionMethods
             // write a log message in the proper color.
 
         }
+
+        private class GreaterThan
+        {
+            return GreaterThan;
+        }
+
+        private class LessThan
+        {
+            return LessThan;
+        }
+
+        private class LessThanEqualto
+        {
+            return LessThanEqualto;
+        }
     }
 
+
+    private class GreaterthanorEqualTo
+    {
+        return GreaterthanorEqualTo;
+    }
     public enum Status
     {
         Critical,
@@ -36,6 +58,12 @@ namespace ExtensionMethods
         Verbose
     }
 
+
+
+    private class Status :Status
+    {
+        return Console.Color("Teal") Status<T>; 
+    }
     public class Person : IComparable<Person>
     {
         public string FirstName
