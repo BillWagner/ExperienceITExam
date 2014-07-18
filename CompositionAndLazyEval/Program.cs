@@ -19,11 +19,14 @@ namespace CompositionAndLazyEval
             var sequence = Enumerable.Range(0, 100)
                 .Select((_) => generator.Next(int.MaxValue));
             // hint:
-
+           
+            
             int number = 1234567890;
             var factors = Primes.PrimeFactors(number);
             foreach (var factor in factors.Log("writing factors"))
-                Console.WriteLine(factor.Log("writing factor")); 
+                Console.WriteLine(factor.Log("writing factor"));
+ 
+
         }
     }
 
