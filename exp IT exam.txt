@@ -1,0 +1,49 @@
+1. See painted file.
+
+2. The highlighted text represents table names and column aliases.
+
+3. Given the tables that you showed me, the results of the query would be exactly what you showed me.
+The query would return all data from each table that correspond to each other via CustomerID.
+
+4. The query would return all records from the Customers table along with all matching records
+from the Orders table. The LEFT JOIN guarantees that all records from the Customers table will be shown.
+
+5. Materialization - Takes data from the database and puts them into object instances.
+Change Tracking - Tracks changes to your data models and updates the database if needed.
+Object Identities - Keeps objects unique and keeps track of each object via primary key.
+
+6. 
+
+//Looks familiar?
+using System;
+using System.Collections.Generic;
+
+namespace ContosoUniversity.Models
+{
+    public class Student
+    {
+        public int ID { get; set; }
+        public string LastName { get; set; }
+        public string FirstMidName { get; set; }
+        public DateTime EnrollmentDate { get; set; }
+        
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
+    }
+}
+
+7. Inheritance, Encapsulation, Instantiation
+
+8. Methods
+
+9. Allows for methods with the same name but different signature.
+
+10. The ability to take on the behavior of another class and proceed to alter or append onto it.
+
+11. A class which may not be instanced and must be inherited.
+
+12.1. Catalog/Specifications
+12.2. GET
+
+13. Model is type MVCGuidedLab.Models.Color
+Single object.
+Name, Value, Id

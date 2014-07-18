@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30516.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loops", "Loops\Loops.csproj", "{730B671F-4CFC-4B10-894A-CE33AEDA2144}"
 EndProject
@@ -10,6 +10,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositionAndLazyEval", "CompositionAndLazyEval\CompositionAndLazyEval.csproj", "{38BE2FCB-AD65-4E45-A03E-FA33E80A44D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryExpressionPattern", "QueryExpressionPattern\QueryExpressionPattern.csproj", "{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{F931E830-6AEE-4077-A5BE-F04263CB9C28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2CD940F3-799A-4A53-8A81-A329F18BFDC1}"
+	ProjectSection(SolutionItems) = preProject
+		exp IT exam.txt = exp IT exam.txt
+		yousaidmspaintwouldwork.png = yousaidmspaintwouldwork.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +69,16 @@ Global
 		{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}.Release|Mixed Platforms.Build.0 = Release|x86
 		{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}.Release|x86.ActiveCfg = Release|x86
 		{A2D0E747-F7E5-4FAF-8C2A-DBC44C7D7AC9}.Release|x86.Build.0 = Release|x86
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F931E830-6AEE-4077-A5BE-F04263CB9C28}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
