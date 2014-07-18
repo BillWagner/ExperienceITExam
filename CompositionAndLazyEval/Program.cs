@@ -21,6 +21,12 @@ namespace CompositionAndLazyEval
        using (obj)
        {
                 action(obj);
+           for(x = 0; x < 100; x++){
+               myvar = rnd.(100);
+           generate100[] = push.generate100[x];
+               console.writeline(generate100[x]);
+           }
+           
        }
 }  
 
@@ -29,6 +35,26 @@ namespace CompositionAndLazyEval
        using (obj)
        {
                 action(obj);
+           Console.WriteLine("Calculate primes");
+      int myreadline = Console.ReadLine();
+           bool isprime = false;
+           string myprimearray[];
+
+
+           for(int x = 0; x < myreadline; x++)
+           {
+               //recursion here
+               // if n = n and no other divisors is prime
+               // save n to array
+               // test next n
+               // repeat last instructions until numerics exhausted
+
+               if(isprime == true){
+
+               }
+
+           }
+       
        }
 }  
             
@@ -37,6 +63,27 @@ namespace CompositionAndLazyEval
 {
        using (obj)
        {
+           int mynum;
+           Console.ReadLine = mynum;
+           int myeven;
+           bool iseven;
+           iseven = false;
+
+
+           for(int x; x < mynum; x++)
+           {
+               myeven = myeven % x;
+               if(myeven == 0){
+                   iseven = true;
+               }
+               
+              if(iseven == true){
+                  Console.WriteLine(x);
+                  iseven = false;
+              }
+           }
+
+
                 action(obj);
        }
 }  
@@ -44,6 +91,13 @@ namespace CompositionAndLazyEval
 {
        using (obj)
        {
+
+
+           // new up object
+           // iterate with foreach
+           // foreach until all objects exhausted
+
+
                 action(obj);
        }
 }  
