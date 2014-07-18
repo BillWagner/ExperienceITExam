@@ -39,8 +39,24 @@ namespace QueryExpressionPattern
             // Convert each of the following Fluent Syntax methods into queries:
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var smallNumbers = numbers.Where((n) => n < 5);
+            var smallNumbers2 = from n in numbers
+                                where n < 5
+                                select n;
+            foreach (int item in smallNumbers2)
+            {
+                Console.WriteLine(item);
+            }
+            
+
 
             var allNumbers = numbers.Select(n => n);
+            var allNumbers2 = from m in numbers
+                              select m;
+            foreach (var item in allNumbers2)
+            {
+                var x = item * 2;
+                Console.WriteLine(x);
+            }
 
             var squares = numbers.Select(n => new { Number = n, Square = n * n });
 
@@ -48,6 +64,13 @@ namespace QueryExpressionPattern
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).
                 ThenBy(e => e.Age);
+
+            
+             var people2 = from f in employees
+                          where f.Age < 30
+                          select (f.LastName, f.FirstName, f.Age);
+
+
 
             var results = employees.GroupBy(e => e.Department).
                 Select(d => new { Department = d.Key, Size = d.Count() });
@@ -64,6 +87,12 @@ namespace QueryExpressionPattern
             var values = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
                 new { oddNumber, evenNumber, Sum = oddNumber + evenNumber });
+
+        for (int i = 0; i < odds.Length; i++)
+			{
+            if (odds[i] + evens[i] % 2 == 0)
+                Console.WriteLine("What");
+			}
 
             var values2 = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
@@ -88,12 +117,17 @@ namespace QueryExpressionPattern
             var labels = new string[] { "0", "1", "2", "3", "4", "5" };
             var query = digits.Join(labels, num => num.ToString(), label => label,
                 (num, label) => new { num, label });
+            var query2 = from n in digits, labels
+                where n inner join 
+
+
+
 
             var groups = departments.GroupJoin(employees,
                 p => p, e => e.Department, (p, emps) =>
                     new { Department = p, Employees = emps});
 
-
+            Console.ReadLine();
         }
     }
 }

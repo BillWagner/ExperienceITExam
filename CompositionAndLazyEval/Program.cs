@@ -16,6 +16,27 @@ namespace CompositionAndLazyEval
             // 4. builds a structure for each number that contains 
             // the number, and a list of all the prime factors
             var generator = new Random();
+            
+            int y = 0;
+
+            //1
+            while (y < 101)
+            {
+                Console.WriteLine(generator.Next(0, 101));
+                y++;
+            }
+
+            //2
+            while (y < 101)
+            {
+                var x = generator.Next(0, 101);
+                y++;
+                if (x % 2 == 0)
+                    Console.WriteLine(x);
+            }
+            //3
+            //whats a prime factor
+
             var sequence = Enumerable.Range(0, 100)
                 .Select((_) => generator.Next(int.MaxValue));
             // hint:
@@ -23,7 +44,10 @@ namespace CompositionAndLazyEval
             int number = 1234567890;
             var factors = Primes.PrimeFactors(number);
             foreach (var factor in factors.Log("writing factors"))
-                Console.WriteLine(factor.Log("writing factor")); 
+                Console.WriteLine(factor.Log("writing factor"));
+
+
+            Console.ReadLine();
         }
     }
 
