@@ -55,14 +55,32 @@ namespace ExtensionMethods
             FirstName = first;
             LastName = last;
         }
-        public void GreaterThan()
+        public void GreaterThan(string[] Members)
         {
-
+            Array.Sort(Members);
+            Console.WriteLine(Members);
         }
+
+        public void LessThan(string[] Members)
+        {
+            Array.Reverse(Members);
+            Console.WriteLine(Members);
+        }
+        public void GreaterThanOrEqual()
+        { 
+        
+        }
+        public void LessThanOrEqual()
+        {
+        
+}
         //  GreaterThan
         //  LessThan
         //  GreaterThanOrEqual
         //  LessThanOrEqual
+        IComparable<Person> Members;
+
+
 
         #region IComparable<Person> Members
 

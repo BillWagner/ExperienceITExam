@@ -13,11 +13,14 @@ namespace DiceRoll.Models
         public int DiceId { get; set; }
       
 
-        public void Roll()
+
+        public string Roll()
         {
             number.Next(0, 6);
             number2.Next(0, 6);
-            Console.WriteLine("{0),{1}", number, number2);
+            string x = "{number, number2}";
+            return x;
+            
 
         }
     }
