@@ -11,11 +11,24 @@ namespace ExtensionMethods
         {
             Person person1 = new Person("Barak", "Obama");
             Person person2 = new Person("Barak", "Obama");
-            if (person1.GreaterThan(person2)) {
+            if (person1.GreaterThan(person2))
+            {
                 Console.WriteLine("Boo ya");
             }
 
             //Hehe works fine.
+            Status status1 = new Status();
+            Status status2 = new Status();
+            Console.WriteLine(status1.CompareTo(status2));
+            person1.status = Status.Critical;
+            person2.status = Status.Information;
+
+            string[] colors = person1.ConvertStatus();
+
+            string bg = colors[0];
+            string brush = colors[1];
+
+            //System.ConsoleColor.Black();
 
 
             // 1. Build out the extension methods for:
@@ -38,6 +51,7 @@ namespace ExtensionMethods
 
     public enum Status
     {
+
         Critical,
         Error,
         Warning,
@@ -47,6 +61,7 @@ namespace ExtensionMethods
 
     public class Person : IComparable<Person>
     {
+        public Status status = new Status();
         public string FirstName
         {
             get;
@@ -99,6 +114,29 @@ namespace ExtensionMethods
         {
             return base.Equals(obj);
         }
+
+        public string[] ConvertStatus()
+        {
+            string[] result = new string[2];
+            //0 - for background, 1 fro brush
+            if (this.status == Status.Critical)
+            {
+                result[0] = "white";
+                result[1] = "green";
+            }
+            else if (this.status == Status.Information)
+            {
+                result[0] = "yellow";
+                result[1] = "blue";
+            }
+            else {
+                result[0] = "black";
+                result[1] = "white";
+            }
+            return result;
+
+        }
+
         #region IComparable<Person> Members
 
         public int CompareTo(Person other)
@@ -107,6 +145,8 @@ namespace ExtensionMethods
             return (lastCompare != 0) ? lastCompare :
                 FirstName.CompareTo(other.FirstName);
         }
+
+
 
         #endregion
     }
