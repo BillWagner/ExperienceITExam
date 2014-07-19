@@ -65,13 +65,8 @@ namespace Loops
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.
             
-            public void WriteToConsole(IEnumerable items)
-            {
-                foreach (object o in items)
-                {
-                    Console.WriteLine(o);
-                }
-            }           
+            allStudents.ForEach(Console.WriteLine);
+            
             Console.ReadLine();
         }
     }
