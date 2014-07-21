@@ -15,6 +15,8 @@ namespace CompositionAndLazyEval
             // 3. finds all the prime factors of each number
             // 4. builds a structure for each number that contains 
             // the number, and a list of all the prime factors
+           
+            
             var generator = new Random();
             var sequence = Enumerable.Range(0, 100)
                 .Select((_) => generator.Next(int.MaxValue));
