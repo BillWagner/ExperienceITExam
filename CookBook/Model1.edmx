@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cookbooks" EntityType="Model1.Cookbook" />
+          <EntitySet Name="Ingredients" EntityType="Model1.Ingredients" />
+          <EntitySet Name="MealTypes1" EntityType="Model1.MealType" />
+          <EntitySet Name="Recipes1" EntityType="Model1.Recipe" />
+          <AssociationSet Name="CookbookIngredients" Association="Model1.CookbookIngredients">
+            <End Role="Cookbook" EntitySet="Cookbooks" />
+            <End Role="Ingredients" EntitySet="Ingredients" />
+          </AssociationSet>
+          <AssociationSet Name="RecipeCookbook" Association="Model1.RecipeCookbook">
+            <End Role="Recipe" EntitySet="Recipes1" />
+            <End Role="Cookbook" EntitySet="Cookbooks" />
+          </AssociationSet>
+          <AssociationSet Name="MealTypeRecipe" Association="Model1.MealTypeRecipe">
+            <End Role="MealType" EntitySet="MealTypes1" />
+            <End Role="Recipe" EntitySet="Recipes1" />
+          </AssociationSet>
+          <AssociationSet Name="IngredientsMealType" Association="Model1.IngredientsMealType">
+            <End Role="Ingredients" EntitySet="Ingredients" />
+            <End Role="MealType" EntitySet="MealTypes1" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cookbook">
+          <Key>
+            <PropertyRef Name="CookBookID" />
+          </Key>
+          <Property Name="CookBookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Ingredients" Relationship="Model1.CookbookIngredients" FromRole="Cookbook" ToRole="Ingredients" />
+          <NavigationProperty Name="Recipe" Relationship="Model1.RecipeCookbook" FromRole="Cookbook" ToRole="Recipe" />
+          <Property Name="RecipeRecipeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredients">
+          <Key>
+            <PropertyRef Name="IngridientsID" />
+          </Key>
+          <Property Name="IngridientsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Salt" Type="String" Nullable="false" />
+          <Property Name="Beef" Type="String" Nullable="false" />
+          <Property Name="chicken" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cookbook" Relationship="Model1.CookbookIngredients" FromRole="Ingredients" ToRole="Cookbook" />
+          <Property Name="CookbookCookBookID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MealTypes" Relationship="Model1.IngredientsMealType" FromRole="Ingredients" ToRole="MealType" />
+        </EntityType>
+        <EntityType Name="MealType">
+          <Key>
+            <PropertyRef Name="MealTypeId" />
+          </Key>
+          <Property Name="MealTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Protien" Type="String" Nullable="false" />
+          <Property Name="LowCarb" Type="String" Nullable="false" />
+          <Property Name="SeaFood" Type="String" Nullable="false" />
+          <NavigationProperty Name="Recipes" Relationship="Model1.MealTypeRecipe" FromRole="MealType" ToRole="Recipe" />
+          <NavigationProperty Name="Ingredient" Relationship="Model1.IngredientsMealType" FromRole="MealType" ToRole="Ingredients" />
+          <Property Name="IngredientsIngridientsID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="RecipeId" />
+          </Key>
+          <Property Name="RecipeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Healthy" Type="String" Nullable="false" />
+          <Property Name="Unhealthy" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cookbooks" Relationship="Model1.RecipeCookbook" FromRole="Recipe" ToRole="Cookbook" />
+          <NavigationProperty Name="MealType" Relationship="Model1.MealTypeRecipe" FromRole="Recipe" ToRole="MealType" />
+          <Property Name="MealTypeMealTypeId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="CookbookIngredients">
+          <End Type="Model1.Cookbook" Role="Cookbook" Multiplicity="1" />
+          <End Type="Model1.Ingredients" Role="Ingredients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cookbook">
+              <PropertyRef Name="CookBookID" />
+            </Principal>
+            <Dependent Role="Ingredients">
+              <PropertyRef Name="CookbookCookBookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RecipeCookbook">
+          <End Type="Model1.Recipe" Role="Recipe" Multiplicity="1" />
+          <End Type="Model1.Cookbook" Role="Cookbook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="RecipeId" />
+            </Principal>
+            <Dependent Role="Cookbook">
+              <PropertyRef Name="RecipeRecipeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MealTypeRecipe">
+          <End Type="Model1.MealType" Role="MealType" Multiplicity="1" />
+          <End Type="Model1.Recipe" Role="Recipe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MealType">
+              <PropertyRef Name="MealTypeId" />
+            </Principal>
+            <Dependent Role="Recipe">
+              <PropertyRef Name="MealTypeMealTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IngredientsMealType">
+          <End Type="Model1.Ingredients" Role="Ingredients" Multiplicity="1" />
+          <End Type="Model1.MealType" Role="MealType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredients">
+              <PropertyRef Name="IngridientsID" />
+            </Principal>
+            <Dependent Role="MealType">
+              <PropertyRef Name="IngredientsIngridientsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
