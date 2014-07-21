@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Loops
 {
-    class Program
+    class Student
     {
-        private static List<Student> allStudents = new List<Student>
+        public static List<Student> allStudents = new List<Student>
         {
             new Student {FirstName = "Alexandre", LastName="Levy" },
             new Student {FirstName = "Louis", LastName="Chauvin" },
@@ -59,11 +59,20 @@ namespace Loops
             new Student {FirstName = "Monkey", LastName="Black" }
         };
 
+
+
         static void Main(string[] args)
         {
+            foreach ( Student in Student.allStudents)
+            {
+                Console.WriteLine("{0}, {1}");
+            }
             //1. Write code to print all the names of all the studnets in the collection above.
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.
+
+           
+           
         }
     }
 }
