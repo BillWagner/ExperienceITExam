@@ -9,7 +9,7 @@ namespace ExtensionMethods
     {
         static void Main(string[] args)
         {
-            // 1. Build out the extension methods for:
+            // 1. Build out the extension methods for: ???? Is what greater or less than? firstname/lastname? (the only 2 properties.)
             //  GreaterThan
             //  LessThan
             //  GreaterThanOrEqual
@@ -23,8 +23,38 @@ namespace ExtensionMethods
 
             // 3. If you have time, write an extension method on status that will
             // write a log message in the proper color.
+            var person = new Person("Bob", "Dole");
 
+            Console.WriteLine(GreaterThan(person));
+            Console.WriteLine(LessThan(person));
+            Console.WriteLine(GreaterThanOrEqual(person));
+            Console.WriteLine(LessThanOrEqual(person));
+
+            
+            
         }
+
+        public static bool GreaterThan(Person a)
+        {
+            return a.FirstName.Length > a.LastName.Length == true;
+        }
+
+        public static bool LessThan(Person a)
+        {
+            return a.FirstName.Length < a.LastName.Length == true;
+        }
+
+        public static bool GreaterThanOrEqual(Person a)
+        {
+            return a.FirstName.Length >= a.LastName.Length == true;
+        }
+        public static bool LessThanOrEqual(Person a)
+        {
+            return a.FirstName.Length <= a.LastName.Length == true;
+        }
+
+
+
     }
 
     public enum Status

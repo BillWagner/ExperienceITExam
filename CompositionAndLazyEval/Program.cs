@@ -20,11 +20,21 @@ namespace CompositionAndLazyEval
                 .Select((_) => generator.Next(int.MaxValue));
             // hint:
 
-            int number = 1234567890;
-            var factors = Primes.PrimeFactors(number);
-            foreach (var factor in factors.Log("writing factors"))
-                Console.WriteLine(factor.Log("writing factor")); 
+
+            //int number = 1234567890;
+
+            foreach (var number in sequence)
+            {
+                var factors = Primes.PrimeFactors(number);
+                foreach (var factor in factors.Log("writing factors"))
+                    Console.WriteLine(factor.Log("writing factor"));
+            }
+        
+        //var query = 
+        
         }
+
+
     }
 
     public static class Extensions
