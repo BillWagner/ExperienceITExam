@@ -8,7 +8,9 @@ namespace Loops
 {
     class Program
     {
-        private static List<Student> allStudents = new List<Student>
+        static IEnumerable<Student> allStudents ()
+        {
+            return new List<Student>
         {
             new Student {FirstName = "Alexandre", LastName="Levy" },
             new Student {FirstName = "Louis", LastName="Chauvin" },
@@ -58,12 +60,25 @@ namespace Loops
             new Student {FirstName = "Soroush (Looloosh)", LastName="Farazmand" },
             new Student {FirstName = "Monkey", LastName="Black" }
         };
+        }
 
         static void Main(string[] args)
         {
             //1. Write code to print all the names of all the studnets in the collection above.
             // 2. Modify the Student class to provide a method to print each students name.
             // 3. Use the method from (2) to print the students' names.
+            Console.WriteLine("Students:");
+            var answer = from n in allStudents()
+                         select n;
+            int k = 1;
+            foreach (var n in answer)
+            {
+                Console.WriteLine(k + ". " + n);
+                k++;
+            }
+
+            Console.ReadLine();
+
         }
     }
 }
