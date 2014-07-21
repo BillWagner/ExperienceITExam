@@ -11,7 +11,24 @@ namespace CompositionAndLazyEval
         {
             // write a query that:
             // 1. Generates 100 random integers.
+            Random rand = new Random();
+            int holdRand = rand.Next(200);
+            for(int i = 0; i < 101; i++)
+            {
+                Console.WriteLine(holdRand);
+                Random rand1 = new Random();
+                holdRand = rand1.Next(200);
+            }
+ //           Console.ReadLine();
+   
             // 2. Uses only the even numbers.
+            for (int i=0; i<101; i++)
+            {
+                if (i % 2 == 0)
+                    Console.WriteLine(i);
+            }
+            Console.ReadLine();
+
             // 3. finds all the prime factors of each number
             // 4. builds a structure for each number that contains 
             // the number, and a list of all the prime factors
@@ -24,7 +41,9 @@ namespace CompositionAndLazyEval
             var factors = Primes.PrimeFactors(number);
             foreach (var factor in factors.Log("writing factors"))
                 Console.WriteLine(factor.Log("writing factor")); 
+
         }
+        
     }
 
     public static class Extensions
