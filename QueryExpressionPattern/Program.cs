@@ -40,18 +40,41 @@ namespace QueryExpressionPattern
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             var smallNumbers = numbers.Where((n) => n < 5);
 
+            IEnumerable<int> lessThanFive = from number in numbers
+                                            where number > 5
+                                            select number;
+
             var allNumbers = numbers.Select(n => n);
 
+            IEnumerable<int> everyNumber = from number in numbers
+                                           where number > -1
+                                           select number;
+
             var squares = numbers.Select(n => new { Number = n, Square = n * n });
+
+            IEnumerable<int> squareNumbers = from number in numbers
+                                             let squared = number * number
+                                             select squared;
 
             var people = employees.Where(e => e.Age > 30).
                 OrderBy(e => e.LastName).
                 ThenBy(e => e.FirstName).
                 ThenBy(e => e.Age);
 
+            IEnumerable<object> peoples = from person in employees
+                                          where person.Age > 30
+                                          orderby person.LastName
+                                          orderby person.FirstName
+                                          orderby person.Age
+                                          select person;
+
             var results = employees.GroupBy(e => e.Department).
                 Select(d => new { Department = d.Key, Size = d.Count() });
 
+            IEnumerable<object> findings = from person in employees
+                                           orderby person.Department
+                                           select new Employee { Department = person.Department };
+            
             var results2 = employees.GroupBy(e => e.Department).
                 Select(d => new
                 {
@@ -59,11 +82,25 @@ namespace QueryExpressionPattern
                     Employees = d.AsEnumerable()
                 });
 
+            IEnumerable<object> findings2 = from person in employees
+                                            orderby person.Department
+                                            select new Employee { Department = person.Department };
+
             int[] odds = {1,3,5,7};
             int[] evens = {2,4,6,8};
             var values = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
                 new { oddNumber, evenNumber, Sum = oddNumber + evenNumber });
+
+            IEnumerable<int> both = from number in evens
+                                    select number;
+            both = from number in odds
+                   select number;
+            for (int i = 0; i < odds.Length; i++)
+            {
+                int sum = evens[i] + odds[i];
+                both = both.Concat(new[] { sum });
+            }
 
             var values2 = odds.SelectMany(oddNumber => evens,
                 (oddNumber, evenNumber) =>
@@ -75,6 +112,11 @@ namespace QueryExpressionPattern
                     pair.evenNumber,
                     Sum = pair.oddNumber + pair.evenNumber
                 });
+
+            IEnumerable<int> both2 = from number in both
+                                     select number;
+
+                                     
 
             var nums = new int[] { 1, 2, 3 };
             var words = new string[] { "one", "two", "three" };

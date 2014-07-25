@@ -9,21 +9,39 @@ namespace CompositionAndLazyEval
     {
         static void Main(string[] args)
         {
-            // write a query that:
-            // 1. Generates 100 random integers.
-            // 2. Uses only the even numbers.
-            // 3. finds all the prime factors of each number
-            // 4. builds a structure for each number that contains 
-            // the number, and a list of all the prime factors
             var generator = new Random();
             var sequence = Enumerable.Range(0, 100)
                 .Select((_) => generator.Next(int.MaxValue));
             // hint:
+            int[] numbers = new int[100];
+            for (int i = 0; i < 100; i++)
+            {
+                numbers[i] = generator.Next(1, 100);
+            }
+            int[] evenNumbers = new int[50];
+            for (int i = 0; i < 100; i++)
+            {
+                if (numbers[i] % 2 == 0)
+                    evenNumbers[i] = numbers[i];
+            }
+            List<int> list = new List<int>();
+            for (int i = 0; i < 100; i++)
+			{
+			    var allFactors = Primes.PrimeFactors(numbers[i]);
+                foreach (var factor in allFactors)
+                {
+                    Console.WriteLine(factor.Log("Adding Factor"));
+                    list.Add(i);
+                    list.Add(factor);
+                }
+			}            
 
             int number = 1234567890;
             var factors = Primes.PrimeFactors(number);
             foreach (var factor in factors.Log("writing factors"))
-                Console.WriteLine(factor.Log("writing factor")); 
+                Console.WriteLine(factor.Log("writing factor"));
+
+            }
         }
     }
 
@@ -55,6 +73,6 @@ namespace CompositionAndLazyEval
                     yield return factors;
 
         }
-
+    
     }
-}
+

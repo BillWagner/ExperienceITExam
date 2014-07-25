@@ -7,25 +7,56 @@ namespace ExtensionMethods
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
+        { }
+        public static int ObjectCompare(Person person)
         {
-            // 1. Build out the extension methods for:
-            //  GreaterThan
-            //  LessThan
-            //  GreaterThanOrEqual
-            //  LessThanOrEqual
-            // Test those methods on the Person class below.
-
-            // 2. Take the enum for status, build an 
-            // extension method that converts the status to a colored foreground
-            // and background brush that you would use for a log message with that 
-            // status.  Use System.ConsoleColor for the color values.
-
-            // 3. If you have time, write an extension method on status that will
-            // write a log message in the proper color.
-
+            int value = String.Compare(person.FirstName, person.LastName);
+            return value;
         }
+
+        public static int ObjectCompareGreaterOrEqual(Person person)
+        {
+            int value = String.Compare(person.FirstName, person.LastName);
+            if (value >= 0)
+                return 1;
+            else
+                return value;
+        }
+
+        public static int ObjetCompareLessOrEqual(Person person)
+        {
+            int value = String.Compare(person.FirstName, person.LastName);
+            if (value <= 0)
+                return -1;
+            else
+                return 1;
+        }
+        public enum Colors
+        {
+            Blue = 0,
+            Cyan = 1,
+            Green = 2,
+            Red = 3,
+            Yellow = 4
+        };
+        ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
+        ConsoleColor currentForeGround = Console.ForegroundColor;
+        ConsoleColor currentBackGround = Console.BackgroundColor;
+
+
     }
+
+    // 2. Take the enum for status, build an 
+    // extension method that converts the status to a colored foreground
+    // and background brush that you would use for a log message with that 
+    // status.  Use System.ConsoleColor for the color values.
+
+    // 3. If you have time, write an extension method on status that will
+    // write a log message in the proper color.
+
+
+
 
     public enum Status
     {
@@ -36,7 +67,9 @@ namespace ExtensionMethods
         Verbose
     }
 
-    public class Person : IComparable<Person>
+
+
+    public class Person
     {
         public string FirstName
         {
@@ -55,17 +88,7 @@ namespace ExtensionMethods
             FirstName = first;
             LastName = last;
         }
-
-        #region IComparable<Person> Members
-
-        public int CompareTo(Person other)
-        {
-            int lastCompare = LastName.CompareTo(other.LastName);
-            return (lastCompare != 0) ? lastCompare :
-                FirstName.CompareTo(other.FirstName);
-        }
-
-        #endregion
     }
-
 }
+
+
